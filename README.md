@@ -43,6 +43,7 @@ telescope.load_extension('dotfiles')
 Using `~/` is allowed.
 
 `TODO`: Add dotfiles stored in `$HOME` to list.
+`TODO`: Allow users to specify finder theme.
 
 ## Usage
 
