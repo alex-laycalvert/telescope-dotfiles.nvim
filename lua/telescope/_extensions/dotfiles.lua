@@ -38,7 +38,7 @@ M.dotfiles = function ()
         end
     end
     pickers.new(opts, {
-        prompt_title = 'colors',
+        prompt_title = 'dotfiles',
         finder = finders.new_table({
             results = results,
             entry_maker = function (entry)
