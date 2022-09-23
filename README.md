@@ -35,6 +35,8 @@ telescope.setup({
         }
     }
 })
+
+telescope.load_extension('dotfiles')
 ```
 
 `config_dir` is where all of your dotfiles are stored. Default is `$HOME/.config`.
