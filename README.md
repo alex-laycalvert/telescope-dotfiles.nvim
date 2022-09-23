@@ -18,11 +18,29 @@ require('packer').startup(function(use)
 end)
 ```
 
-Then in your `init.lua` or wherever your `telescope` config is:
+## Setup
+
+In your `init.lua` or wherever your `telescope` config is, you can load the extension
+like this.
 
 ```lua
-require('telescope').load_extension('dotfiles')
+local telescope = require('telescope')
+
+telescope.setup({
+    -- ... your normal telescope config
+    extensions = {
+        -- ... other extension config
+        dotfiles = {
+            config_dir = '<YOUR CONFIG DIR>'
+        }
+    }
+})
 ```
+
+`config_dir` is where all of your dotfiles are stored. Default is `$HOME/.config`.
+Using `~/` is allowed.
+
+`TODO`: Add dotfiles stored in `$HOME` to list.
 
 ## Usage
 

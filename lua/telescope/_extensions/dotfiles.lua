@@ -11,13 +11,15 @@ local themes = require('telescope.themes')
 local scan = require('plenary.scandir')
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
+local home = os.getenv('HOME')
 
 local M = {}
 
+local config_dir = ''
+
 M.dotfiles = function ()
     local opts = themes.get_dropdown({})
-    local home = os.getenv('HOME')
-    local config_dir = home .. '/.config'
+    config_dir = string.gsub(config_dir, '~', home)
     local file_list = scan.scan_dir(config_dir, { hidden = true, depth = 2 })
     local results = {}
     local added_files = {}
@@ -68,7 +70,7 @@ end
 
 return require('telescope').register_extension {
   setup = function(ext_config, config)
-    -- access extension config and user config
+      config_dir = ext_config.config_dir or home .. '/.config'
   end,
   exports = {
     dotfiles = M.dotfiles
