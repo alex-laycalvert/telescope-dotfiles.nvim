@@ -31,7 +31,8 @@ telescope.setup({
     extensions = {
         -- ... other extension config
         dotfiles = {
-            config_dir = '<YOUR CONFIG DIR>'
+            config_dir = '<YOUR CONFIG DIR>',
+            exclude_dir = '<OPTIONAL EXCLUDE DIRS>'
         }
     }
 })
@@ -39,11 +40,31 @@ telescope.setup({
 telescope.load_extension('dotfiles')
 ```
 
-`config_dir` is where all of your dotfiles are stored. Default is `$HOME/.config`.
-Using `~/` is allowed.
+Configuration Options:
 
-`TODO`: Add dotfiles stored in `$HOME` to list.
-`TODO`: Allow users to specify finder theme.
+- `config_dir`: Location of extra dotfiles. Default is `$HOME/.config/`.
+- `exclude_dirs`: Files and directories to exclude from the dotfiles list. Default is:
+
+    ```
+    {
+          '.cache/',
+          '.cargo/',
+          '.npm/',
+          '.ssh/',
+          '.wallpaper/',
+          'Desktop/',
+          'Documents/',
+          'Downloads/',
+          'Images/',
+          'Pictures/',
+          'Templates/',
+          'Videos/',
+    }
+    ```
+
+    Settings this value replaces the default.
+    
+***NOTE***: All directories used as values must have a trailing `/`.
 
 ## Usage
 
